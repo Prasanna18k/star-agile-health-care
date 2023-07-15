@@ -21,7 +21,7 @@ pipeline {
                     
                     withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ]) {
                       sh 'docker login -u prasannagundavarapu -p maruthi@12345'
-                      sh 'docker push healthcareimage'
+                      sh 'docker push prasannagundavarapu/healthcareimage'
              }
                     
                 }
