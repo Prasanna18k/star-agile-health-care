@@ -17,7 +17,7 @@ pipeline {
          
 
                 script {
-                    def customImage = docker.build("healthcareimage")
+                    def customImage = docker.build("prasannagundavarapu/healthcareimage")
                     
                     withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ]) {
                       sh 'docker login -u prasannagundavarapu -p maruthi@12345'
