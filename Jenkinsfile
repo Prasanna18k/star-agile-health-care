@@ -11,7 +11,13 @@ pipeline {
     }
     stage ('image') {
       steps {
-        sh 'mvn clean package'
+       checkout scm
+         echo 'Starting to build docker image'
+
+                script {
+                    def customImage = docker.build("my-image:${env.BUILD_ID}")
+                    customImage.push()
+                }
       }
     }
   }
