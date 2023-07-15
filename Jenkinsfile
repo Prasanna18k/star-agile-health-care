@@ -13,11 +13,12 @@ pipeline {
       steps {
        checkout scm
          echo 'Starting to build docker image'
-         sh 'docker login -u prasannagundavarapu -p maruthi@12345'
+         
          
 
                 script {
                     def customImage = docker.build("my-image:${env.BUILD_ID}")
+                    sh 'docker login -u prasannagundavarapu -p maruthi@12345'
                     customImage.push()
                 }
       }
